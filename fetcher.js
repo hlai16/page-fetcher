@@ -1,12 +1,11 @@
 const fs = require('fs')
 const request = require('request');
 
-let content = '';
 
 request('http://www.example.edu/', (error, response, body) => {
   console.log('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  content = body;
+  const content = body;
 
   fs.writeFile('./index.html', content, err => {
     if (err) {
